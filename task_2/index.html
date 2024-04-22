@@ -8,6 +8,51 @@
   </head>
   <body>
     <div id="app"></div>
+    <script>
+      let currencyFrom = '';
+      let currencyTo = '';
+      let amount = 0;
+      let convertedAmount = 0;
+    
+      async function fetchExchangeRate() {
+        // Здесь необходимо выполнить запрос к API для получения курса выбранных валют
+        // Например, можно использовать fetch API
+        // После получения данных, обновить convertedAmount с учетом курса валют
+      }
+    
+      $: {
+        // Реактивно вызываем функцию fetchExchangeRate при изменении значений в полях ввода
+        fetchExchangeRate();
+      }
+    
+      function handleCurrencyChange(event) {
+        // Обработчик события изменения выбранных валют
+        // Обновляем значения переменных currencyFrom и currencyTo
+      }
+    
+      function handleAmountChange(event) {
+        // Обработчик события изменения суммы для конвертации
+        // Обновляем значение переменной amount
+      }
+    </script>
+    
+    <style>
+      /* Стили для визуальной составляющей */
+    </style>
+    
+    <div>
+      <label for="currencyFrom">From:</label>
+      <input type="text" id="currencyFrom" bind:value={currencyFrom} on:input={handleCurrencyChange}>
+    
+      <label for="currencyTo">To:</label>
+      <input type="text" id="currencyTo" bind:value={currencyTo} on:input={handleCurrencyChange}>
+    
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" bind:value={amount} on:input={handleAmountChange}>
+    
+      <p>Converted Amount: {convertedAmount}</p>
+    </div>
+    
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
